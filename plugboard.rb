@@ -23,4 +23,9 @@ class Plugboard
     plugs = first_plugs.zip(second_plugs).to_h
     plugs.merge(plugs.invert)
   end
+
+  def self.generate_rotor
+    Dir.mkdir("./parts") unless File.exists?("./parts")
+    File.open("./parts/plugboard", "w") { |file| file.write(Plugboard.generate) }
+  end
 end

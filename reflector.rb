@@ -18,4 +18,9 @@ class Reflector
     mapped = shuffled_alphabet.first(13).zip(shuffled_alphabet.last(13)).to_h
     mapped.merge(mapped.invert)
   end
+
+  def self.generate_reflector
+    Dir.mkdir("./parts") unless File.exists?("./parts")
+    File.open("./parts/reflector", "w") { |file| file.write(Reflector.generate) }
+  end
 end

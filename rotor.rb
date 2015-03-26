@@ -27,4 +27,8 @@ class Rotor
     alphabet.zip(alphabet.shuffle).to_h
   end
 
+  def self.generate_rotor(rotor_number)
+    Dir.mkdir("./parts") unless File.exists?("./parts")
+    File.open("./parts/rotor_#{rotor_number}", "w") { |file| file.write(Rotor.generate) }
+  end
 end

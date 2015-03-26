@@ -42,3 +42,4 @@ end
 machine = Machine.new
 text = 'HIMOMTHISISMYENIGMAMACHINE'
 puts "#{text} has been encrypted to #{encrypted = machine.input(text)}"
+puts "#{encrypted} has been decrypted to #{machine.input(encrypted)}"
