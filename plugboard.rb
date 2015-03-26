@@ -5,7 +5,7 @@ class Plugboard
   # Revise this to take an argument of 10 alphabet pairs
 
   def initialize
-    @plugboard = self.class.generate
+    @plugboard = eval(File.read("./parts/plugboard"))
   end
 
   def translate(char)
@@ -24,7 +24,7 @@ class Plugboard
     plugs.merge(plugs.invert)
   end
 
-  def self.generate_rotor
+  def self.generate_plugboard
     Dir.mkdir("./parts") unless File.exists?("./parts")
     File.open("./parts/plugboard", "w") { |file| file.write(Plugboard.generate) }
   end
