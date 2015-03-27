@@ -13,11 +13,8 @@ class Machine
   end
 
   def encrypt(input)
-    output = 
     input.chars.map do |char|
-      self.rotor_fast = rotor_fast.rotate
-      self.rotor_medium = rotor_medium.rotate if rotor_fast.offset % 25 == 0
-      self.rotor_slow = rotor_slow.rotate if rotor_medium.offset % 25*25 == 0
+      rotate_rotors
 
       char = plugboard.translate(char).nil? ? char : plugboard.translate(char)
 
@@ -37,6 +34,13 @@ class Machine
 
   def print_message(message)
     puts message
+  end
+
+  private
+  def rotate_rotors
+    self.rotor_fast = rotor_fast.rotate
+    self.rotor_medium = rotor_medium.rotate if rotor_fast.offset % 25 == 0
+    self.rotor_slow = rotor_slow.rotate if rotor_medium.offset % 25*25 == 0
   end
 end
 

@@ -39,9 +39,13 @@ class Enigma
 
   def encrypt
     my_enigma = Machine.new
+    print "Input rotors to use in the following format (1 2 5): "
+    rotors = get_user_input.split
     print "Input rotor offsets in the following format (21 3 11): "
-    input = get_user_input.split
-    my_enigma.rotor_fast, my_enigma.rotor_medium, my_enigma.rotor_slow = Rotor.new(1, input[0].to_i), Rotor.new(2, input[1].to_i), Rotor.new(3, input[2].to_i)
+    offsets = get_user_input.split
+    my_enigma.rotor_fast = Rotor.new(rotors[0].to_i, offsets[0].to_i)
+    my_enigma.rotor_medium = Rotor.new(rotors[1].to_i, offsets[1].to_i)
+    my_enigma.rotor_slow = Rotor.new(rotors[2].to_i, offsets[2].to_i)
     print "Input phrase to encrypt: "
     input = get_user_input.upcase
     puts "Your encrypted phrase is: #{my_enigma.encrypt(input)}"
@@ -49,9 +53,13 @@ class Enigma
 
   def decrypt
     my_enigma = Machine.new
+    print "Input rotors to use in the following format (1 2 5): "
+    rotors = get_user_input.split
     print "Input rotor offsets in the following format (21 3 11): "
-    input = get_user_input.split
-    my_enigma.rotor_fast, my_enigma.rotor_medium, my_enigma.rotor_slow = Rotor.new(1, input[0].to_i), Rotor.new(2, input[1].to_i), Rotor.new(3, input[2].to_i)
+    offsets = get_user_input.split
+    my_enigma.rotor_fast = Rotor.new(rotors[0].to_i, offsets[0].to_i)
+    my_enigma.rotor_medium = Rotor.new(rotors[1].to_i, offsets[1].to_i)
+    my_enigma.rotor_slow = Rotor.new(rotors[2].to_i, offsets[2].to_i)
     print "Input phrase to decrypt: "
     input = get_user_input.upcase
     puts "Your decrypted phrase is: #{my_enigma.encrypt(input)}"
