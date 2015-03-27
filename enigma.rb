@@ -2,6 +2,7 @@ require_relative 'machine'
 require_relative 'plugboard'
 require_relative 'rotor'
 require_relative 'reflector'
+
 class Enigma
   def call
     puts "Welcome to the Enigma Machine"
@@ -37,16 +38,22 @@ class Enigma
   end
 
   def encrypt
+    my_enigma = Machine.new
+    print "Input rotor offsets in the following format (21 3 11): "
+    input = get_user_input.split
+    my_enigma.rotor_fast, my_enigma.rotor_medium, my_enigma.rotor_slow = Rotor.new(1, input[0].to_i), Rotor.new(2, input[1].to_i), Rotor.new(3, input[2].to_i)
     print "Input phrase to encrypt: "
     input = get_user_input.upcase
-    my_enigma = Machine.new
     puts "Your encrypted phrase is: #{my_enigma.encrypt(input)}"
   end
 
   def decrypt
+    my_enigma = Machine.new
+    print "Input rotor offsets in the following format (21 3 11): "
+    input = get_user_input.split
+    my_enigma.rotor_fast, my_enigma.rotor_medium, my_enigma.rotor_slow = Rotor.new(1, input[0].to_i), Rotor.new(2, input[1].to_i), Rotor.new(3, input[2].to_i)
     print "Input phrase to decrypt: "
     input = get_user_input.upcase
-    my_enigma = Machine.new
     puts "Your decrypted phrase is: #{my_enigma.encrypt(input)}"
   end
 

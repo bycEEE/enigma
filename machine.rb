@@ -9,7 +9,6 @@ class Machine
 
   def initialize
     @plugboard = Plugboard.new
-    @rotor_fast, @rotor_medium, @rotor_slow = Rotor.new(1, 21), Rotor.new(2, 3), Rotor.new(3, 11)
     @reflector = Reflector.new
   end
 
