@@ -1,1 +1,1 @@
-Enigma machine and Bombe machine in Ruby.
+Enigma machine in Ruby.
