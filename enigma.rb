@@ -66,7 +66,7 @@ class Enigma
   end
 
   def generate_rotor
-    print "Select which rotor to generate (1-5). Type 'all' to generate all rotors"
+    print "Select which rotor to generate (1-5). Type 'all' to generate all rotors: "
     input = get_user_input
 
     if input.is_a? Fixnum
